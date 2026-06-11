@@ -1,0 +1,15 @@
+com\recipe\backend\config\AiProperties.class
+com\recipe\backend\model\RecipeStep.class
+com\recipe\backend\strategy\OpenAiChatServiceImpl.class
+com\recipe\backend\config\AiProperties$ProviderConfig.class
+com\recipe\backend\strategy\ZhipuChatServiceImpl.class
+com\recipe\backend\service\RecipeService.class
+com\recipe\backend\strategy\ChatService.class
+com\recipe\backend\BackendApplication.class
+com\recipe\backend\controller\ChatCompletionsController.class
+com\recipe\backend\model\RecipeResponse.class
+com\recipe\backend\service\ChatProxyService.class
+com\recipe\backend\config\GlobalExceptionHandler.class
+com\recipe\backend\config\CorsConfig.class
+com\recipe\backend\controller\RecipeController.class
+com\recipe\backend\model\RecipeGenerateRequest.class

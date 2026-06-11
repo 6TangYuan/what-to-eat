@@ -1,0 +1,70 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: recipe-backend
+
+  # ========== 排除 Spring AI 自动配置（使用自定义 ChatService 实现） ==========
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration
+
+  # ========== MySQL 数据源配置 ==========
+  datasource:
+    url: jdbc:mysql://localhost:3306/recipe_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: your_mysql_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ========== Redis 配置 ==========
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:        # 默认无密码，如有密码请填写
+      database: 0
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+# ========== AI 服务商配置（多服务商可切换） ==========
+
+ai:
+  provider: openai  # DeepSeek兼容OpenAI接口，使用 openai 即可
+  openai:
+    base-url: https://api.deepseek.com/v1
+    api-key: sk-a7808227a5004260bf5400bd11dff816    # 替换为你的 DeepSeek API Key
+    model: deepseek-chat  # 或者 deepseek-coder
+    timeout: 300000
+
+  zhipu:
+    base-url: ${ZHIPU_BASE_URL:https://open.bigmodel.cn/api/paas/v4}
+    api-key: ${ZHIPU_API_KEY:your-zhipu-api-key}
+    model: ${ZHIPU_MODEL:glm-4}
+    temperature: 0.7
+    timeout: 300000
+
+# ========== MyBatis-Plus 配置 ==========
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.recipe.backend.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# ========== 日志配置 ==========
+logging:
+  level:
+    com.recipe.backend: debug
+    org.springframework.ai: debug

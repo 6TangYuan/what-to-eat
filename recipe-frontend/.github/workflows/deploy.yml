@@ -1,0 +1,37 @@
+name: Deploy to Vercel and Netlify
+
+on:
+    push:
+        branches: [main, master]
+    pull_request:
+        branches: [main, master]
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Type check
+              run: npm run type-check
+
+            - name: Build project
+              run: npm run build
+              env:
+                  VITE_TEXT_GENERATION_BASE_URL: ${{ secrets.VITE_TEXT_GENERATION_BASE_URL }}
+                  VITE_TEXT_GENERATION_API_KEY: ${{ secrets.VITE_TEXT_GENERATION_API_KEY }}
+                  VITE_TEXT_GENERATION_MODEL: ${{ secrets.VITE_TEXT_GENERATION_MODEL }}
+                  VITE_IMAGE_GENERATION_BASE_URL: ${{ secrets.VITE_IMAGE_GENERATION_BASE_URL }}
+                  VITE_IMAGE_GENERATION_API_KEY: ${{ secrets.VITE_IMAGE_GENERATION_API_KEY }}
+                  VITE_IMAGE_GENERATION_MODEL: ${{ secrets.VITE_IMAGE_GENERATION_MODEL }}

@@ -1,0 +1,14 @@
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\BackendApplication.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\config\AiProperties.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\config\CorsConfig.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\config\GlobalExceptionHandler.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\controller\ChatCompletionsController.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\controller\RecipeController.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\model\RecipeGenerateRequest.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\model\RecipeResponse.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\model\RecipeStep.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\service\ChatProxyService.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\service\RecipeService.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\strategy\ChatService.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\strategy\OpenAiChatServiceImpl.java
+D:\QLDownload\what-to-eat\recipe-backend\src\main\java\com\recipe\backend\strategy\ZhipuChatServiceImpl.java
